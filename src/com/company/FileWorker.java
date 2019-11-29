@@ -32,26 +32,5 @@ public class FileWorker {
             throw new RuntimeException(e);
         }
     }
-    public static String textEveryWordFirstLetterToUpperCase(String text) {
-        //defines the delimiter between to concat the edited words
-        StringJoiner joiner = new StringJoiner(" ");
-        //loop through text and splits it on words
-        for (String word : text.split(" ")) {
-            //changes first letter in every word  to uppercase
-            word = word.substring(0, 1).toUpperCase() + word.substring(1);
-            //concats all edited words to text
-            joiner.add(word);
-            text = joiner.toString();
-        }
-        return text;
-    }
-    public static String deleteFromTextSelectedArg(String text){
-        Scanner scanner = new Scanner(System.in);
-        //select string to delete from source text
-        String toDelete = scanner.nextLine();
-        //loop through source text and replace choosed string to delete and space after it with empty string
-        text = text.replace(toDelete+" ", "");
-        System.out.println(text);
-        return text;
-    }
+
 }

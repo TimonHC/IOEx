@@ -10,23 +10,33 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String buffer = "";
+
         int menuChoose;
-        System.out.println("MENU\n1: use existing text\n2: user input('end' to exit)");
+        System.out.println("MENU\n1: use existing text\n2: user input\n(double enter to confirm)");
         Scanner scanner = new Scanner(System.in);
 
-        switch (menuChoose = scanner.nextInt()){
-            case (1): buffer = TextWorker.useExistingText();
-            case (2): buffer = TextWorker.readTextFromTheUserInput();
+
+
+            switch (menuChoose = scanner.nextInt()){
+            case (1): TextWorker.buffer = (TextWorker.useExistingText());
+            break;
+            case (2): TextWorker.buffer = TextWorker.readTextFromTheUserInput();
+            break;
             default: break;
         }
 
-        System.out.println("MENU\n1: to upper case\n2: delete selected arg from txt");
+
+        System.out.println("MENU\n1: to upper case\n2: delete selected arg from txt:");
         switch (menuChoose = scanner.nextInt()){
             case (1):
-                FileWorker.write("Files\\ShakspeareEdited.txt", FileWorker.textEveryWordFirstLetterToUpperCase(buffer));
+                FileWorker.write("Files\\FirstLetterToUppEditedText.txt", TextWorker.textEveryWordFirstLetterToUpperCase(TextWorker.buffer));
+                System.out.println(TextWorker.buffer);
+                break;
             case (2):
-                FileWorker.write("Files\\TextWithDeletedWords.txt", FileWorker.deleteFromTextSelectedArg(buffer));
+                FileWorker.write("Files\\TextWithDeletedWords.txt", TextWorker.deleteFromTextSelectedArg(TextWorker.buffer));
+                System.out.println(TextWorker.buffer);
+                break;
+            default: break;
         }
     }
 }
