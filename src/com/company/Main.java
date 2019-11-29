@@ -30,11 +30,11 @@ public class Main {
         switch (menuChoose = scanner.nextInt()){
             case (1):
                 FileWorker.write("Files\\FirstLetterToUppEditedText.txt", TextWorker.textEveryWordFirstLetterToUpperCase(TextWorker.buffer));
-                System.out.println(TextWorker.buffer);
+                FileWorker.print("Files\\FirstLetterToUppEditedText.txt");
                 break;
             case (2):
                 FileWorker.write("Files\\TextWithDeletedWords.txt", TextWorker.deleteFromTextSelectedArg(TextWorker.buffer));
-                System.out.println(TextWorker.buffer);
+                FileWorker.print("Files\\TextWithDeletedWords.txt");
                 break;
             default: break;
         }

@@ -3,6 +3,8 @@ package com.company;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.StringJoiner;
 
@@ -31,6 +33,9 @@ public class FileWorker {
         } catch(IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static void print(String pathToFile) throws IOException {
+        System.out.println(new String(Files.readAllBytes(Paths.get(pathToFile))));
     }
 
 }

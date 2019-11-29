@@ -10,19 +10,18 @@ public class TextWorker {
     static String buffer = "";
     private static String SOURCE_TEXT_PATH = ("Files\\Shakespeare.txt");
 
-
     public static String useExistingText() throws IOException {
         String buffer = new String(Files.readAllBytes(Paths.get(SOURCE_TEXT_PATH)));
         return buffer;
     }
     public static String readTextFromTheUserInput(){
         Scanner scanner = new Scanner(System.in);
-        String buffer = "";
-        String inputBuffer;
-        while (!((inputBuffer = scanner.nextLine()).isEmpty())){
-            String newString = ("\n" + inputBuffer);
-            buffer+= (newString);
-        }
+        StringBuilder stringBuilder = new StringBuilder();
+        String buffer;
+        while (!(buffer = scanner.nextLine()).isEmpty()) {
+            stringBuilder.append("\n"+buffer);
+            }
+        buffer = stringBuilder.toString();
         return buffer;
     }
     public static String textEveryWordFirstLetterToUpperCase(String buffer) {
